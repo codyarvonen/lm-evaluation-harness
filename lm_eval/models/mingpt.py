@@ -32,7 +32,6 @@ class HFLM(BaseLM):
     ):
         super().__init__()
 
-        self.model_device = device
 
         # Initialize model
         model_config = GPT.get_default_config()
@@ -41,6 +40,9 @@ class HFLM(BaseLM):
         model_config.block_size = 1024
         model_config.checkpoint_path = checkpoint_path
         self.model = GPT(model_config)
+
+        self.model.to(device)
+        self.model_device = device
 
         self.tokenizer = transformers.GPT2Tokenizer.from_pretrained(tokenizer_path)
 
