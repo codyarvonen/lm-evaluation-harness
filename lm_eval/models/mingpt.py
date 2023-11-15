@@ -91,7 +91,7 @@ class HFLM(BaseLM):
     @property
     def device(self):
         # TODO: fix multi-gpu
-        return self._device
+        return self.device
 
     def tok_encode(self, string: str):
         return self.tokenizer.encode(string, add_special_tokens=False)
