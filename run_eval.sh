@@ -1,3 +1,4 @@
+#!/bin/bash
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
 #SBATCH --gpus=1
