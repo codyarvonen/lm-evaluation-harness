@@ -5,12 +5,14 @@ from . import huggingface
 from . import textsynth
 from . import dummy
 from . import gguf
+from . import mingpt
 
 MODEL_REGISTRY = {
     "hf": gpt2.HFLM,
     "hf-causal": gpt2.HFLM,
     "hf-causal-experimental": huggingface.AutoCausalLM,
     "hf-seq2seq": huggingface.AutoSeq2SeqLM,
+    "mingpt": mingpt.MINGPTLM,
     "gpt2": gpt2.GPT2LM,
     "gpt3": gpt3.GPT3LM,
     "anthropic": anthropic_llms.AnthropicLM,
