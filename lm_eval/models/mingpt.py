@@ -55,7 +55,7 @@ class HFLM(BaseLM):
             self.batch_schedule = float(batch_size[1]) if len(batch_size) > 1 else 1
         else:
             self.batch_size_per_gpu = int(batch_size)
-            
+
         self.max_batch_size = max_batch_size
 
         self._max_length = max_length
@@ -70,9 +70,9 @@ class HFLM(BaseLM):
         if self._max_length:  # if max length manually set, return it
             return self._max_length
         seqlen_config_attrs = ("n_positions", "max_position_embeddings", "n_ctx")
-        for attr in seqlen_config_attrs:
-            if hasattr(self.model.config, attr):
-                return getattr(self.model.config, attr)
+        # for attr in seqlen_config_attrs:
+        #     if hasattr(self.model.config, attr):
+        #         return getattr(self.model.config, attr)
         if hasattr(self.tokenizer, "model_max_length"):
             if self.tokenizer.model_max_length == 1000000000000000019884624838656:
                 return self._DEFAULT_MAX_LENGTH
