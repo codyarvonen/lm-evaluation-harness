@@ -22,7 +22,7 @@ class HFLM(BaseLM):
 
     def __init__(
         self,
-        model_device="cuda",
+        device="cuda",
         checkpoint_path=None,
         model_type="gpt-mini",
         tokenizer_path=None,
@@ -32,7 +32,7 @@ class HFLM(BaseLM):
     ):
         super().__init__()
 
-        self.model_device = model_device
+        self.model_device = device
 
         # Initialize model
         model_config = GPT.get_default_config()
