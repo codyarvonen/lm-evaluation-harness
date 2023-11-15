@@ -15,4 +15,4 @@ module load python/3.11
 cd ~/compute
 source gptenv/bin/activate
 cd ~/lm-evaluation-harness
-python main.py --model mingpt --model_args checkpoint_path="../minGPT/checkpoint_999.pt",tokenizer_path="../minGPT/tokenizer_weights.pt" --tasks hellaswag,boolq,anli_r1,piqa,openbookqa,arc_easy,winogrande
+python main.py --model mingpt --model_args checkpoint_path="../minGPT/checkpoint_999.pt",tokenizer_path="../minGPT/tokenizer_weights.pt" --tasks hellaswag,boolq,anli_r1,piqa,openbookqa,arc_easy,winogrande --device cuda:0
