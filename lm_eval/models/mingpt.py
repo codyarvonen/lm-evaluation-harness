@@ -32,6 +32,8 @@ class HFLM(BaseLM):
     ):
         super().__init__()
 
+        self.model_device = model_device
+
         # Initialize model
         model_config = GPT.get_default_config()
         model_config.model_type = model_type
