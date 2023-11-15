@@ -3,7 +3,8 @@ import transformers
 from typing import Optional, Union
 from lm_eval.base import BaseLM
 
-from minGPT.mingpt.model import GPT
+# from minGPT.mingpt.model import GPT
+from mingpt.model import GPT
 
 def _get_dtype(dtype: Union[str, torch.dtype]) -> torch.dtype:
     """Converts `dtype` from `str` to torch.dtype when possible. Does not use an instantiated HF AutoConfig"""
