@@ -48,7 +48,14 @@ class HFLM(BaseLM):
 
         # Validate batch_size
         assert isinstance(batch_size, (int, str))
-
+        # setup for automatic batch size detection
+        if str(batch_size).startswith("auto"):
+            batch_size = batch_size.split(":")
+            self.batch_size_per_gpu = batch_size[0]
+            self.batch_schedule = float(batch_size[1]) if len(batch_size) > 1 else 1
+        else:
+            self.batch_size_per_gpu = int(batch_size)
+            
         self.max_batch_size = max_batch_size
 
         self._max_length = max_length
