@@ -22,7 +22,7 @@ class HFLM(BaseLM):
 
     def __init__(
         self,
-        device="cuda",
+        model_device="cuda",
         checkpoint_path=None,
         model_type="gpt-mini",
         tokenizer_path=None,
@@ -91,7 +91,7 @@ class HFLM(BaseLM):
     @property
     def device(self):
         # TODO: fix multi-gpu
-        return self.device
+        return self.model_device
 
     def tok_encode(self, string: str):
         return self.tokenizer.encode(string, add_special_tokens=False)
